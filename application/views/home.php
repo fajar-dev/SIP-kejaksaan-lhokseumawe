@@ -13,6 +13,7 @@
        
       </div>
     </div>
+    <?= $this->session->flashdata('msg'); ?>
     <div class="row mb-8">
       <div class="col-xl-3 col-lg-4 col-md-12 col-12">
         <div class="mb-4 mb-lg-0">
@@ -121,7 +122,7 @@
                 <div class="mb-3 row">
                   <label for="langauge" class="col-sm-4 col-form-label form-label">Pelayanan</label>
                   <div class="col-md-8 col-12">
-                    <select class="form-select" id="langauge" name="pelayanan">
+                    <select class="form-select" id="langauge" name="pelayanan" required>
                         <option selected="" disabled>--Pilih Pelayanan--</option>
                         <option value="Luring">Luring</option>
                         <option value="Daring">Daring</option>
@@ -134,11 +135,11 @@
                   <div class="col-md-8 col-12">
                     <select class="form-select" id="langauge" name="tipe">
                         <option selected="" disabled>--Pilih Pengaju--</option>
-                        <option value="Luring">Tamu Biasa</option>
-                        <option value="Daring">Saksi</option>
-                        <option value="Daring">Terdakwa</option>
-                        <option value="Daring">Ahli</option>
-                        <option value="Daring">Tamu VVip</option>
+                        <option value="Tamu Biasa">Tamu Biasa</option>
+                        <option value="Saksi">Saksi</option>
+                        <option value="Terdakwa">Terdakwa</option>
+                        <option value="Ahli">Ahli</option>
+                        <option value="Tamu VVip">Tamu VVip</option>
                       </select>
                   </div>
                 </div>

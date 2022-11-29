@@ -14,7 +14,7 @@
 
 
 <!-- Theme JS -->
-<script src="assets/js/theme.min.js"></script>
+<script src="<?= base_url() ?>assets/js/theme.min.js"></script>
 
 
 

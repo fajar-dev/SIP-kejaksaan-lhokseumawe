@@ -9,6 +9,14 @@ class Home extends CI_Controller {
 		$this->load->view('home');
     $this->load->view('include/footer');
 	}
+  
+	public function sukses()
+	{
+    $data['title'] = "Home";
+    $this->load->view('include/header', $data);
+		$this->load->view('sukses');
+    $this->load->view('include/footer');
+	}
 
   public function tambah()
 	{
@@ -18,21 +26,13 @@ class Home extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('foto')){
 				$this->session->set_flashdata('msg',
-				'<div class="position-fixed" style="z-index: 9999999">
-				<div id="toast" class="bs-toast toast toast-placement-ex m-2 fade bg-danger top-0 start-50 translate-middle-x show" role="alert" aria-live="assertive" aria-atomic="true">
-					<div class="toast-header">
-						<i class="bx bx-bell me-2"></i>
-						<div class="me-auto fw-semibold">GAGAL!</div>
-						<small>Now</small>
-						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-					</div>
-					<div class="toast-body">
-						Pastikan file yang anda input berekstensi jpg, png atau pdf 
-					</div>
-				</div>
-			</div>
+				'<div class="alert alert-warning d-flex align-items-center" role="alert">
+        <div><strong>Gagal</strong><br>
+          Pastikan foto yang anda upload berekstensi jpg/png
+        </div>
+      </div>
 			');
-				redirect(base_url('kompetisi/bootcamp'));
+				redirect(base_url());
 	 }else{
 					 $data = array('foto' => $this->upload->data());
 					 $uploadData = $this->upload->data();
@@ -52,7 +52,7 @@ class Home extends CI_Controller {
 				 );
  
 				 $this->db->insert('tbl_pengajuan',$data);
-				 redirect(base_url());
+				 redirect(base_url('sukses'));
 	  }
   }
 }
