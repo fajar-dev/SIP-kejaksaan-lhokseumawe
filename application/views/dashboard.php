@@ -7,10 +7,7 @@
                         <div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="mb-2 mb-lg-0">
-                                    <h3 class="mb-0  text-white">Dashboard</h3>
-                                </div>
-                                <div>
-                                    <a href="#" class="btn btn-white">Create New Project</a>
+                                    <h3 class="mb-0  text-white"><?= $title ?></h3>
                                 </div>
                             </div>
                         </div>

@@ -25,4 +25,14 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard');
     $this->load->view('include/footer');
 	}
+
+  public function jaksa()
+	{
+    $data['hasil'] = $this->db->get('tbl_jaksa')->result();
+    $data['title'] = "Jaksa";
+    $this->load->view('include/header', $data);
+    $this->load->view('include/sidebar');
+		$this->load->view('jaksa');
+    $this->load->view('include/footer');
+	}
 }

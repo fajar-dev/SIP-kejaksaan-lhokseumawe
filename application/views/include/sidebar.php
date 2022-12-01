@@ -6,7 +6,7 @@
             <div class="nav-scroller">
                 <!-- Brand logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/brand/logo/logo.svg" alt="" />
+                    <img src="<?= base_url() ?>assets/images/brand/logo/logo.svg" alt="" />
                 </a>
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
@@ -18,7 +18,7 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <div class="navbar-heading">Permintaan</div>
+                        <div class="navbar-heading">Pengajuan</div>
                     </li>
 
                     <!-- Nav item -->
@@ -62,7 +62,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link " href="pages/layout.html">
-                            <i data-feather="clipboard" class="nav-icon icon-xs me-2" ></i> Data Jaksa
+                            <i data-feather="clipboard" class="nav-icon icon-xs me-2" ></i>Jaksa
                         </a>
                     </li>
 
@@ -93,7 +93,7 @@
                         <li class="dropdown ms-2">
                             <a class="rounded-circle" href="#" role="button" id="dropdownUser" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="avatar avatar-md avatar-indicators avatar-online">
-                                    <img alt="avatar" src="assets/images/avatar/avatar-1.jpg" class="rounded-circle" />
+                                    <img alt="avatar" src="<?= base_url() ?>assets/images/avatar/avatar-1.jpg" class="rounded-circle" />
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
