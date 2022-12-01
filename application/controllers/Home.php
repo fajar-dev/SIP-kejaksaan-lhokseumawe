@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 	public function index()
 	{
+		$data['hasil'] = $this->db->get('tbl_jaksa')->result();
     $data['title'] = "Home";
     $this->load->view('include/header', $data);
 		$this->load->view('home');

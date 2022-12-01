@@ -113,8 +113,9 @@
                   <div class="col-md-8 col-12">
                     <select class="form-select" id="langauge" name="jaksa" required>
                         <option selected="" disabled>--Pilih Jaksa--</option>
-                        <option value="Laki-Laki">Laki-Laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <?php foreach($hasil as $data){ ?>
+                        <option value="<?= $data->id?>"><?php echo htmlentities($data->nama, ENT_QUOTES, 'UTF-8');?></option>
+                        <?php } ?>
                       </select>
                   </div>
                 </div>
@@ -125,7 +126,6 @@
                     <select class="form-select" id="langauge" name="pelayanan" required>
                         <option selected="" disabled>--Pilih Pelayanan--</option>
                         <option value="Luring">Luring</option>
-                        <option value="Daring">Daring</option>
                       </select>
                   </div>
                 </div>
