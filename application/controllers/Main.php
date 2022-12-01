@@ -35,4 +35,91 @@ class Main extends CI_Controller {
 		$this->load->view('jaksa');
     $this->load->view('include/footer');
 	}
+
+  public function tambah_jaksa()
+	{
+    $config['upload_path']          = './file';
+		$config['allowed_types']        = 'img|png|jpeg|gif|jpg';
+		$config['encrypt_name']        = true;
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('foto')){
+				$this->session->set_flashdata('msg',
+				'<div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill me-2" viewBox="0 0 16 16">
+               <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+               <strong>Gagal !! </strong> Pastikan foto yang anda upload berekstensi jpg/png
+            </div>
+       </div>
+			');
+				redirect(base_url('main/jaksa'));
+	 }else{
+					 $data = array('foto' => $this->upload->data());
+					 $uploadData = $this->upload->data();
+					 $hasil = $uploadData['file_name'];
+					 $data = array(
+						'nama' => $this->input->post('nama'),
+						'nip' => $this->input->post('nip'),
+						'email' => $this->input->post('email'),
+						'hp' => $this->input->post('hp'),
+						'foto' => $hasil,
+				 );
+				 $this->db->insert('tbl_jaksa',$data);
+				 redirect(base_url('main/jaksa'));
+	  }
+  }
+
+  public function edit_jaksa(){
+		if(empty($_FILES['foto']['name'])){
+      $data = array(
+        'nama' => $this->input->post('nama'),
+        'nip' => $this->input->post('nip'),
+        'email' => $this->input->post('email'),
+        'hp' => $this->input->post('hp'),
+			);
+        $this->db->where('id', $this->input->post('id'));
+				$this->db->update('tbl_jaksa',$data);
+				redirect(base_url('main/jaksa'));
+		}else{
+			$config['upload_path']        = './file';
+      $config['allowed_types']       = 'img|png|jpeg|gif|jpg';
+      $config['encrypt_name']        = true;
+      $this->load->library('upload', $config);
+		  if ( ! $this->upload->do_upload('foto')){
+        $this->session->set_flashdata('msg',
+        '<div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill me-2" viewBox="0 0 16 16">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              <strong>Gagal !! </strong> Pastikan foto yang anda upload berekstensi jpg/png
+            </div>
+      </div>
+      ');
+      redirect(base_url('main/jaksa'));
+			}else{
+							$data = array('foto' => $this->upload->data());
+							$uploadData = $this->upload->data();
+							$hasil = $uploadData['file_name'];
+              $data = array(
+                'nama' => $this->input->post('nama'),
+                'nip' => $this->input->post('nip'),
+                'email' => $this->input->post('email'),
+                'hp' => $this->input->post('hp'),
+                'foto' => $hasil,
+              );
+              $this->db->where('id', $this->input->post('id'));
+              $this->db->update('tbl_jaksa',$data);
+              redirect(base_url('main/jaksa'));
+			}
+		}
+  } 
+
+  public function hapus_jaksa($id)
+	{
+    $this->db->where('id', $id);
+    $this->db->delete('tbl_jaksa');
+		redirect(base_url('main/jaksa')); 
+	}
 }
