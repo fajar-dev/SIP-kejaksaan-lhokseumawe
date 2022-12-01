@@ -122,4 +122,55 @@ class Main extends CI_Controller {
     $this->db->delete('tbl_jaksa');
 		redirect(base_url('main/jaksa')); 
 	}
+
+
+  public function admin()
+	{
+    $data['hasil'] = $this->db->get('tbl_admin')->result();
+    $data['title'] = "Admin";
+    $this->load->view('include/header', $data);
+    $this->load->view('include/sidebar');
+		$this->load->view('admin');
+    $this->load->view('include/footer');
+	}
+
+  public function tambah_admin()
+	{
+		$data = array(
+						'nama' => $this->input->post('nama'),
+						'nip' => $this->input->post('nip'),
+						'user' => $this->input->post('user'),
+						'password' => md5($this->input->post('password')),
+		);
+		$this->db->insert('tbl_admin',$data);
+		redirect(base_url('main/admin'));
+  }
+
+  public function edit_admin()
+	{
+    if(empty($this->input->post('pass'))){
+      $data = array(
+        'nama' => $this->input->post('nama'),
+        'nip' => $this->input->post('nip'),
+        'user' => $this->input->post('user'),
+      );
+    }else{
+      $data = array(
+        'nama' => $this->input->post('nama'),
+        'nip' => $this->input->post('nip'),
+        'user' => $this->input->post('user'),
+        'password' => md5($this->input->post('pass')),
+      );
+    }
+    $this->db->where('id', $this->input->post('id'));
+		$this->db->update('tbl_admin',$data);
+		redirect(base_url('main/admin'));
+  }
+
+  public function hapus_admin($id)
+	{
+    $this->db->where('id', $id);
+    $this->db->delete('tbl_admin');
+		redirect(base_url('main/admin')); 
+	}
 }

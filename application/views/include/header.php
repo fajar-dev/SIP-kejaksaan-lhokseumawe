@@ -14,6 +14,7 @@
 <link href="<?= base_url() ?>assets/libs/dropzone/dist/dropzone.css"  rel="stylesheet">
 <link href="<?= base_url() ?>assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
 <link href="<?= base_url() ?>assets/libs/prismjs/themes/prism-okaidia.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/css/theme.min.css">
