@@ -14,11 +14,11 @@
               <p class="mb-6">Sistem Informasi Penjadwalan Jaksa <br>Kejaksaan Kota Lhokseumawe </p>
             </div>
             <!-- Form -->
-            <form>
+            <form method="POST" action="<?= base_url('auth/login') ?>">
               <!-- Username -->
               <div class="mb-3">
                 <label for="email" class="form-label">Username</label>
-                <input type="email" id="email" class="form-control" name="email" placeholder="Username..." required="">
+                <input type="text" id="email" class="form-control" name="username" placeholder="Username..." required="">
               </div>
               <!-- Password -->
               <div class="mb-3">

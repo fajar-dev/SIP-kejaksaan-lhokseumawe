@@ -11,7 +11,7 @@
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
                     <li class="nav-item">
-                        <a class="nav-link has-arrow  active " href="index.html">
+                        <a class="nav-link has-arrow  active " href="<?= base_url('main') ?>">
                             <i data-feather="home" class="nav-icon icon-xs me-2"></i>  Dashboard
                         </a>
                     </li>
@@ -61,19 +61,19 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link " href="<?= base_url('main/jaksa') ?>">
                             <i data-feather="clipboard" class="nav-icon icon-xs me-2" ></i>Jaksa
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link " href="<?= base_url('main/admin') ?>">
                             <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Admin
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link " href="<?= base_url('auth/logout') ?>">
                             <i data-feather="power" class="nav-icon icon-xs me-2" ></i> Logout
                         </a>
                     </li>
@@ -99,14 +99,14 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
                                 <div class="px-4 pb-0 pt-2">
                                     <div class="lh-1 ">
-                                        <h5 class="mb-1"> John E. Grainger</h5>
+                                        <h5 class="mb-1"> <?php echo $this->session->userdata('nama') ?></h5>
                                         <span class="text-inherit fs-6">admin</span>
                                     </div>
                                     <div class=" dropdown-divider mt-3 mb-2"></div>
                                 </div>
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a class="dropdown-item" href="index.html">
+                                        <a class="dropdown-item" href="<?= base_url('auth/logout') ?>">
                                             <i class="me-2 icon-xxs dropdown-item-icon"
                                             data-feather="power"></i>Sign Out
                                         </a>
