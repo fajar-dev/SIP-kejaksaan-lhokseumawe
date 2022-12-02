@@ -66,11 +66,11 @@ class Main extends CI_Controller {
 					 $uploadData = $this->upload->data();
 					 $hasil = $uploadData['file_name'];
 					 $data = array(
-						'nama' => $this->input->post('nama'),
-						'nip' => $this->input->post('nip'),
-						'email' => $this->input->post('email'),
-						'hp' => $this->input->post('hp'),
-						'foto' => $hasil,
+						'nama_jaksa' => $this->input->post('nama'),
+						'nip_jaksa' => $this->input->post('nip'),
+						'email_jaksa' => $this->input->post('email'),
+						'hp_jaksa' => $this->input->post('hp'),
+						'foto_jaksa' => $hasil,
 				 );
 				 $this->db->insert('tbl_jaksa',$data);
 				 redirect(base_url('main/jaksa'));
@@ -80,10 +80,10 @@ class Main extends CI_Controller {
   public function edit_jaksa(){
 		if(empty($_FILES['foto']['name'])){
       $data = array(
-        'nama' => $this->input->post('nama'),
-        'nip' => $this->input->post('nip'),
-        'email' => $this->input->post('email'),
-        'hp' => $this->input->post('hp'),
+        'nama_jaksa' => $this->input->post('nama'),
+        'nip_jaksa' => $this->input->post('nip'),
+        'email_jaksa' => $this->input->post('email'),
+        'hp_jaksa' => $this->input->post('hp'),
 			);
         $this->db->where('id', $this->input->post('id'));
 				$this->db->update('tbl_jaksa',$data);
@@ -110,11 +110,11 @@ class Main extends CI_Controller {
 							$uploadData = $this->upload->data();
 							$hasil = $uploadData['file_name'];
               $data = array(
-                'nama' => $this->input->post('nama'),
-                'nip' => $this->input->post('nip'),
-                'email' => $this->input->post('email'),
-                'hp' => $this->input->post('hp'),
-                'foto' => $hasil,
+                'nama_jaksa' => $this->input->post('nama'),
+                'nip_jaksa' => $this->input->post('nip'),
+                'email_jaksa' => $this->input->post('email'),
+                'hp_jaksa' => $this->input->post('hp'),
+                'foto_jaksa' => $hasil,
               );
               $this->db->where('id', $this->input->post('id'));
               $this->db->update('tbl_jaksa',$data);

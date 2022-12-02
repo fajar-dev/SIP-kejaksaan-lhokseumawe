@@ -126,6 +126,7 @@
                     <select class="form-select" id="langauge" name="pelayanan" required>
                         <option selected="" disabled>--Pilih Pelayanan--</option>
                         <option value="Luring">Luring</option>
+                        <option value="Daring">Daring</option>
                       </select>
                   </div>
                 </div>

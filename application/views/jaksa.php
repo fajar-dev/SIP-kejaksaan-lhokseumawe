@@ -39,11 +39,11 @@
                             <tbody>
                               <?php foreach($hasil as $data){ ?>
                               <tr>
-                                <td class="align-middle"><img src="<?= base_url() ?>file/<?= $data->foto?>" class="img-fluid" width="100" alt=""> </td>
-                                <td  class="align-middle"><?php echo htmlentities($data->nama, ENT_QUOTES, 'UTF-8');?></td>
-                                <td  class="align-middle"><?php echo htmlentities($data->nip, ENT_QUOTES, 'UTF-8');?></td>
-                                <td  class="align-middle"><?php echo htmlentities($data->email, ENT_QUOTES, 'UTF-8');?></td>
-                                <td  class="align-middle"><?php echo htmlentities($data->hp, ENT_QUOTES, 'UTF-8');?></td>
+                                <td class="align-middle"><img src="<?= base_url() ?>file/<?= $data->foto_jaksa?>" class="img-fluid" width="100" alt=""> </td>
+                                <td  class="align-middle"><?php echo htmlentities($data->nama_jaksa, ENT_QUOTES, 'UTF-8');?></td>
+                                <td  class="align-middle"><?php echo htmlentities($data->nip_jaksa, ENT_QUOTES, 'UTF-8');?></td>
+                                <td  class="align-middle"><?php echo htmlentities($data->email_jaksa, ENT_QUOTES, 'UTF-8');?></td>
+                                <td  class="align-middle"><?php echo htmlentities($data->hp_jaksa, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#edit_jaksa<?= $data->id?>" class="btn btn-warning text-white"><i class="bi bi-pencil-fill"></i></a>
@@ -65,19 +65,19 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                   <label class="form-label" for="textInput">Nama</label>
-                                                  <input type="text" id="textInput" class="form-control" value="<?php echo htmlentities($data->nama, ENT_QUOTES, 'UTF-8');?>" name="nama" placeholder="Nama Jaksa..." required>
+                                                  <input type="text" id="textInput" class="form-control" value="<?php echo htmlentities($data->nama_jaksa, ENT_QUOTES, 'UTF-8');?>" name="nama" placeholder="Nama Jaksa..." required>
                                                 </div>
                                                 <div class="mb-3">
                                                   <label class="form-label" for="textInput">NIP</label>
-                                                  <input type="number" id="textInput" class="form-control" value="<?php echo htmlentities($data->nip, ENT_QUOTES, 'UTF-8');?>" name="nip" placeholder="NIP Jaksa..." required>
+                                                  <input type="number" id="textInput" class="form-control" value="<?php echo htmlentities($data->nip_jaksa, ENT_QUOTES, 'UTF-8');?>" name="nip" placeholder="NIP Jaksa..." required>
                                                 </div>
                                                 <div class="mb-3">
                                                   <label class="form-label" for="textInput">Email</label>
-                                                  <input type="text" id="textInput" class="form-control" value="<?php echo htmlentities($data->email, ENT_QUOTES, 'UTF-8');?>" name="email" placeholder="email Jaksa..." required>
+                                                  <input type="text" id="textInput" class="form-control" value="<?php echo htmlentities($data->email_jaksa, ENT_QUOTES, 'UTF-8');?>" name="email" placeholder="email Jaksa..." required>
                                                 </div>
                                                 <div class="mb-3">
                                                   <label class="form-label" for="textInput">No. HP</label>
-                                                  <input type="text" id="textInput" class="form-control" value="<?php echo htmlentities($data->hp, ENT_QUOTES, 'UTF-8');?>" name="hp" placeholder="No.HP Jaksa..." required>
+                                                  <input type="text" id="textInput" class="form-control" value="<?php echo htmlentities($data->hp_jaksa, ENT_QUOTES, 'UTF-8');?>" name="hp" placeholder="No.HP Jaksa..." required>
                                                 </div>
                                                 <div class="mb-3">
                                                   <label class="form-label" for="textInput">Foto</label>
