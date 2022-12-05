@@ -17,7 +17,7 @@
                       <div class="card">
                         <!-- card header  -->
                         <div class="card-header bg-white  py-4">
-                          <h4 class="mb-0">Pengajuan Pending</h4>
+                          <h4 class="mb-0">Proses Disposisi 2</h4>
                         </div>
                         <?= $this->session->flashdata('msg'); ?>
                         <!-- table  -->
