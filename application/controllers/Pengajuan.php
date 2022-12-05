@@ -21,27 +21,61 @@ class Pengajuan extends CI_Controller {
     $this->load->view('include/footer');
 	}
 
+  public function add_disposisi_1()
+	{
+		$data = array(
+						'id_pengajuan' => $this->input->post('id'),
+						'urut' => 1,
+						'tanggal_pertemuan' => $this->input->post('tgl'),
+						'isi' => $this->input->post('isi'),
+		);
+		$this->db->insert('tbl_disposisi',$data);
+    $this->db->set('status', 1);
+    $this->db->where('id', $this->input->post('id'));
+    $this->db->update('tbl_pengajuan');
+		redirect(base_url('pengajuan'));
+  }
+
+  public function tolak_pending($id)
+	{
+    $this->db->set('status', 5);
+    $this->db->where('id', $id);
+    $this->db->update('tbl_pengajuan');
+		redirect(base_url('pengajuan'));
+  }
+
+
   public function disposisi_1()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->where('status', 0)->get();
+    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 1)->where('urut', 1)->get();
     $data['hasil'] = $q->result();
     // print_r($data);die;
     $data['title'] = "Disposisi 1";
     $this->load->view('include/header', $data);
     $this->load->view('include/sidebar');
-		$this->load->view('pending');
+		$this->load->view('disposisi_1');
     $this->load->view('include/footer');
 	}
 
   public function disposisi_2()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->where('status', 0)->get();
+    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 2)->where('urut', 2)->get();
     $data['hasil'] = $q->result();
     $data['title'] = "Disposisi 2";
     $this->load->view('include/header', $data);
     $this->load->view('include/sidebar');
-		$this->load->view('pending');
+		$this->load->view('Disposisi_2');
     $this->load->view('include/footer');
 	}
 
+  public function selesai()
+	{
+    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 2)->where('urut', 2)->get();
+    $data['hasil'] = $q->result();
+    $data['title'] = "Disposisi 2";
+    $this->load->view('include/header', $data);
+    $this->load->view('include/sidebar');
+		$this->load->view('selesai');
+    $this->load->view('include/footer');
+	}
 }

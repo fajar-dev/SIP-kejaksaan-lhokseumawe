@@ -23,7 +23,7 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link " href="<?= base_url('pengajuan') ?>">
                             <i data-feather="layers" class="nav-icon icon-xs me-2" ></i> pending
                         </a>
                     </li>
@@ -36,13 +36,13 @@
                         <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="pages/profile.html">Disposisi 1</a>
+                                    <a class="nav-link " href="<?= base_url('pengajuan/disposisi_1') ?>">Disposisi 1</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="pages/profile.html"> Disposisi 2</a>
+                                    <a class="nav-link " href="<?= base_url('pengajuan/disposisi_2') ?>"> Disposisi 2</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="pages/profile.html"> Disposisi 3</a>
+                                    <a class="nav-link " href="<?= base_url('pengajuan/disposisi_3') ?>"> Disposisi 3</a>
                                 </li>
                             </ul>
                         </div>
