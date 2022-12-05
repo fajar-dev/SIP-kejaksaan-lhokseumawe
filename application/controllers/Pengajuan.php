@@ -57,6 +57,29 @@ class Pengajuan extends CI_Controller {
     $this->load->view('include/footer');
 	}
 
+  public function add_disposisi_2()
+	{
+		$data = array(
+						'id_pengajuan' => $this->input->post('id'),
+						'urut' => 2,
+						'tanggal_pertemuan' => $this->input->post('tgl'),
+						'isi' => $this->input->post('isi'),
+		);
+		$this->db->insert('tbl_disposisi',$data);
+    $this->db->set('status', 2);
+    $this->db->where('id', $this->input->post('id'));
+    $this->db->update('tbl_pengajuan');
+		redirect(base_url('pengajuan/disposisi_1'));
+  }
+
+  public function selesai_disposisi_1($id)
+	{
+    $this->db->set('status', 4);
+    $this->db->where('id', $id);
+    $this->db->update('tbl_pengajuan');
+		redirect(base_url('pengajuan/disposisi_1'));
+  }
+
   public function disposisi_2()
 	{
     $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 2)->where('urut', 2)->get();
@@ -67,6 +90,30 @@ class Pengajuan extends CI_Controller {
 		$this->load->view('Disposisi_2');
     $this->load->view('include/footer');
 	}
+
+  public function add_disposisi_3()
+	{
+		$data = array(
+						'id_pengajuan' => $this->input->post('id'),
+						'urut' => 3,
+						'tanggal_pertemuan' => $this->input->post('tgl'),
+						'isi' => $this->input->post('isi'),
+		);
+		$this->db->insert('tbl_disposisi',$data);
+    $this->db->set('status', 3);
+    $this->db->where('id', $this->input->post('id'));
+    $this->db->update('tbl_pengajuan');
+		redirect(base_url('pengajuan/disposisi_1'));
+  }
+
+  public function selesai_disposisi_2($id)
+	{
+    $this->db->set('status', 4);
+    $this->db->where('id', $id);
+    $this->db->update('tbl_pengajuan');
+		redirect(base_url('pengajuan/disposisi_2'));
+  }
+
 
   public function selesai()
 	{

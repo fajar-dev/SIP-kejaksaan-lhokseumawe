@@ -110,19 +110,19 @@
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#disposisi<?= $data->id?>" class="btn btn-primary text-white"><i class="bi bi-file-arrow-up"></i> Disposisi ke-2</a>
-                                    <a href="<?= base_url('pengajuan/tolak_pending/'.$data->id) ?>" onclick="confirm('Anda Yakin Ingin Menolak Pengajuan?');" class="btn btn-warning"><i class="bi bi-bookmark-check"></i> Selesai</a>
+                                    <a href="<?= base_url('pengajuan/selesai_disposisi_1/'.$data->id) ?>" onclick="confirm('Pertemuan Telah Selesai?');" class="btn btn-warning"><i class="bi bi-bookmark-check"></i> Selesai</a>
                                     
                                     <!-- Modal add -->
                                       <div class="modal fade" id="disposisi<?= $data->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog" role="document">
                                               <div class="modal-content">
                                                   <div class="modal-header">
-                                                      <h5 class="modal-title" id="exampleModalLabel">Disposisi Pengajuan</h5>
+                                                      <h5 class="modal-title" id="exampleModalLabel">Disposisi</h5>
                                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                           <span aria-hidden="true">&times;</span>
                                                       </button>
                                                   </div>
-                                                  <?php echo form_open_multipart('pengajuan/add_disposisi_1');?>
+                                                  <?php echo form_open_multipart('pengajuan/add_disposisi_2');?>
                                                   <input type="hidden" name="id" value="<?= $data->id ?>">
                                                   <div class="modal-body">
                                                       <div class="mb-3">

@@ -25,7 +25,7 @@
                           <table class="table text-nowrap mb-0">
                             <thead class="table-light">
                               <tr>
-                                <th>Tanggal Disposisi</th>
+                              <th>Tanggal Disposisi</th>
                                 <th>Nama pengaju</th>
                                 <th>Tipe Pengaju</th>
                                 <th>Jaksa Tujuan</th>
@@ -109,8 +109,38 @@
                                 <td  class="align-middle"><?php echo htmlentities($data->isi, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    <a href="#" class="btn btn-success text-white"><i class="bi bi-check-lg"></i> Disposisi</a>
-                                    <a href="<?= base_url('main/hapus_admin/'.$data->id) ?>" onclick="confirm('Anda Yakin Ingin Menghapus Data Admin?');" class="btn btn-danger"><i class="bi bi-x-lg"></i> Tolak</a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#disposisi<?= $data->id?>" class="btn btn-primary text-white"><i class="bi bi-file-arrow-up"></i> Disposisi ke-3</a>
+                                    <a href="<?= base_url('pengajuan/selesai_disposisi_2/'.$data->id) ?>" onclick="confirm('Pertemuan Telah Selesai?');" class="btn btn-warning"><i class="bi bi-bookmark-check"></i> Selesai</a>
+                                    
+                                    <!-- Modal add -->
+                                      <div class="modal fade" id="disposisi<?= $data->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                  <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel">Disposisi</h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                  </div>
+                                                  <?php echo form_open_multipart('pengajuan/add_disposisi_3');?>
+                                                  <input type="hidden" name="id" value="<?= $data->id ?>">
+                                                  <div class="modal-body">
+                                                      <div class="mb-3">
+                                                        <label class="form-label" for="textInput">Tanggal Pertemuan</label>
+                                                        <input type="date" id="textInput" class="form-control" name="tgl" required>
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="textarea-input" class="form-label">Isi Disposisi</label>
+                                                        <textarea class="form-control" name="isi" id="textarea-input" rows="5" required></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                      <button type="sumbit" class="btn btn-primary">Simpan</button>
+                                                  </div>
+                                                  <?php echo form_close(); ?>   
+                                              </div>
+                                          </div>
+                                      </div>
                                   </div>
                                 </td>
                               </tr>
@@ -129,39 +159,3 @@
         </div>
     </div>
 
-<!-- Modal add -->
-<div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Admin</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <?php echo form_open_multipart('main/tambah_admin');?>
-            <div class="modal-body">
-                <div class="mb-3">
-                  <label class="form-label" for="textInput">Nama</label>
-                  <input type="text" id="textInput" class="form-control" name="nama" placeholder="Nama Admin..." required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="textInput">NIP</label>
-                  <input type="number" id="textInput" class="form-control" name="nip" placeholder="NIP Admin..." required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="textInput">Username</label>
-                  <input type="text" id="textInput" class="form-control" name="user" placeholder="Username..." required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="textInput">password</label>
-                  <input type="password" id="textInput" class="form-control" name="pass" placeholder="***" required>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="sumbit" class="btn btn-primary">Simpan</button>
-            </div>
-            <?php echo form_close(); ?>   
-        </div>
-    </div>
-</div>
