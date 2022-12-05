@@ -139,11 +139,27 @@ class Pengajuan extends CI_Controller {
 	{
     $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id=tbl_pengajuan.id_jaksa', 'left')->where('status', 4)->or_where('status', 5)->get();
     $data['hasil'] = $q->result();
-    print_r($data);die();
+    // print_r($data);die();
     $data['title'] = "Selesai";
     $this->load->view('include/header', $data);
     $this->load->view('include/sidebar');
 		$this->load->view('selesai');
+    $this->load->view('include/footer');
+	}
+
+  public function detail($id)
+	{
+    $q = $this->db->select('*')->from('tbl_disposisi')->where('id_pengajuan', $id)->get();
+    $data['hasil'] = $q->result();
+    $q = $this->db->select('*')->from('tbl_pengajuan')->where('id', $id)->get();
+    $data['data'] = $q->row_array();
+    $q = $this->db->select('*')->from('tbl_jaksa')->where('id', $data['data']['id_jaksa'])->get();
+    $data['jaksa'] = $q->row_array();
+    $data['title'] = "Detail Disposisi";
+      // print_r($data);die();
+    $this->load->view('include/header', $data);
+    $this->load->view('include/sidebar');
+		$this->load->view('detail');
     $this->load->view('include/footer');
 	}
 }
