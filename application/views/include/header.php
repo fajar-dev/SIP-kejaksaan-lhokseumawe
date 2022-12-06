@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Favicon icon-->
-<link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/images/favicon/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/images/logo.svg">
 
 <!-- Libs CSS -->
 <link href="<?= base_url() ?>assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
