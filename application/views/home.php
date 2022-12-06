@@ -4,7 +4,7 @@
       <div class="col-lg-12 col-md-12 col-12 text-center">
         <!-- Page header -->
      
-        <img src="assets/images/logo.svg" width="120px" alt="">
+        <img src="<?= base_url() ?>assets/images/logo.svg" width="120px" alt="">
 
           <div class="border-bottom pb-4 mb-4">              
               <h3 class="mb-0 fw-bold mt-3">Kejaksaan Tinggi Kota Lhokseumawe</h3>             

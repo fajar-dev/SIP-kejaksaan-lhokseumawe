@@ -6,12 +6,12 @@
             <div class="nav-scroller">
                 <!-- Brand logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="<?= base_url() ?>assets/images/brand/logo/logo.svg" alt="" />
+                    <h4 class="text-white fw-bold">Kejati-Lhokseumawe</h4>
                 </a>
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
                     <li class="nav-item">
-                        <a class="nav-link has-arrow  active " href="<?= base_url('main') ?>">
+                        <a class="nav-link has-arrow  <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/main')){ echo 'active';} ?>" href="<?= base_url('main') ?>">
                             <i data-feather="home" class="nav-icon icon-xs me-2"></i>  Dashboard
                         </a>
                     </li>
@@ -23,7 +23,7 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link " href="<?= base_url('pengajuan') ?>">
+                        <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/pengajuan')){ echo 'active';} ?>" href="<?= base_url('pengajuan') ?>">
                             <i data-feather="layers" class="nav-icon icon-xs me-2" ></i> pending
                         </a>
                     </li>
@@ -33,16 +33,16 @@
                         <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
                             <i data-feather="layers" class="nav-icon icon-xs me-2"></i> Proses
                         </a>
-                        <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
+                        <div id="navPages" class="collapse show" data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="<?= base_url('pengajuan/disposisi_1') ?>">Disposisi 1</a>
+                                    <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/pengajuan/disposisi_1')){ echo 'active';} ?>" href="<?= base_url('pengajuan/disposisi_1') ?>">Disposisi 1</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="<?= base_url('pengajuan/disposisi_2') ?>"> Disposisi 2</a>
+                                    <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/pengajuan/disposisi_2')){ echo 'active';} ?>" href="<?= base_url('pengajuan/disposisi_2') ?>"> Disposisi 2</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="<?= base_url('pengajuan/disposisi_3') ?>"> Disposisi 3</a>
+                                    <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/pengajuan/disposisi_3')){ echo 'active';} ?>" href="<?= base_url('pengajuan/disposisi_3') ?>"> Disposisi 3</a>
                                 </li>
                             </ul>
                         </div>
@@ -50,7 +50,7 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/pengajuan/selesai')){ echo 'active';} ?>" href="<?= base_url('pengajuan/selesai') ?>">
                             <i data-feather="layers" class="nav-icon icon-xs me-2" ></i> Selesai
                         </a>
                     </li>
@@ -61,13 +61,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="<?= base_url('main/jaksa') ?>">
+                        <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/main/jaksa')){ echo 'active';} ?>" href="<?= base_url('main/jaksa') ?>">
                             <i data-feather="clipboard" class="nav-icon icon-xs me-2" ></i>Jaksa
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="<?= base_url('main/admin') ?>">
+                        <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/main/admin')){ echo 'active';} ?>" href="<?= base_url('main/admin') ?>">
                             <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Admin
                         </a>
                     </li>

@@ -9,8 +9,8 @@
         <div class="card smooth-shadow-md">
           <!-- Card body -->
           <div class="card-body p-6">
-            <div class="mb-4">
-              <a href="index.html"><img src="assets/images/brand/logo/logo-primary.svg" class="mb-2" alt=""></a>
+            <div class="mb-4 text-center">
+            <img src="<?= base_url() ?>assets/images/logo.svg" width="80px" class="mb-3" alt="">
               <p class="mb-6">Sistem Informasi Penjadwalan Jaksa <br>Kejaksaan Kota Lhokseumawe </p>
             </div>
             <!-- Form -->
