@@ -109,12 +109,19 @@
           <div class="card-body">
                 <!-- row -->
                 <div class="mb-3 row">
+                  <label for="addressLine" class="col-sm-4 col-form-label form-label">Tanggal Booking</label>
+                  <div class="col-md-8 col-12">
+                    <input type="date" class="form-control" placeholder="Alamat" id="addressLine" required="" name="tgl">
+                  </div>
+                </div>
+                <!-- row -->
+                <div class="mb-3 row">
                   <label for="langauge" class="col-sm-4 col-form-label form-label">Jaksa Tujuan</label>
                   <div class="col-md-8 col-12">
                     <select class="form-select" id="langauge" name="jaksa" required>
                         <option selected="" disabled>--Pilih Jaksa--</option>
                         <?php foreach($hasil as $data){ ?>
-                        <option value="<?= $data->id?>"><?php echo htmlentities($data->nama, ENT_QUOTES, 'UTF-8');?></option>
+                        <option value="<?= $data->id_jaksa?>"><?php echo htmlentities($data->nama_jaksa, ENT_QUOTES, 'UTF-8');?></option>
                         <?php } ?>
                       </select>
                   </div>

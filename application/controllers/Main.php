@@ -85,7 +85,7 @@ class Main extends CI_Controller {
         'email_jaksa' => $this->input->post('email'),
         'hp_jaksa' => $this->input->post('hp'),
 			);
-        $this->db->where('id', $this->input->post('id'));
+        $this->db->where('id_jaksa', $this->input->post('id'));
 				$this->db->update('tbl_jaksa',$data);
 				redirect(base_url('main/jaksa'));
 		}else{
@@ -116,7 +116,7 @@ class Main extends CI_Controller {
                 'hp_jaksa' => $this->input->post('hp'),
                 'foto_jaksa' => $hasil,
               );
-              $this->db->where('id', $this->input->post('id'));
+              $this->db->where('id_jaksa', $this->input->post('id'));
               $this->db->update('tbl_jaksa',$data);
               redirect(base_url('main/jaksa'));
 			}
@@ -125,7 +125,7 @@ class Main extends CI_Controller {
 
   public function hapus_jaksa($id)
 	{
-    $this->db->where('id', $id);
+    $this->db->where('id_jaksa', $id);
     $this->db->delete('tbl_jaksa');
 		redirect(base_url('main/jaksa')); 
 	}

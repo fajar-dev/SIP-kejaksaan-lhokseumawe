@@ -46,6 +46,7 @@ class Home extends CI_Controller {
 						'hp' => $this->input->post('hp'),
 						'alamat' => $this->input->post('alamat'),
 						'id_jaksa' => $this->input->post('jaksa'),
+						'tanggal_booking' => $this->input->post('tgl'),
 						'pelayanan' => $this->input->post('pelayanan'),
 						'tipe' => $this->input->post('tipe'),
 						'tujuan' => $this->input->post('tujuan'),

@@ -27,6 +27,7 @@
                               <tr>
                                 <th>Nama pengaju</th>
                                 <th>Tipe Pengaju</th>
+                                <th>Tanggal Booking</th>
                                 <th>Jaksa Tujuan</th>
                                 <th>Pelayanan</th>
                                 <th>Tujuan</th>
@@ -51,7 +52,7 @@
                                                   <div class="modal-body">
                                                     <div class="table-responsive">
                                                       <table class="table fw-normal">
-                                                      <div class="text-center mb-3"><img src="<?= base_url() ?>file/<?= $data->foto_jaksa?>" class="img-fluid" width="300" alt=""> </div>
+                                                      <div class="text-center mb-3"><img src="<?= base_url() ?>file/<?= $data->foto?>" class="img-fluid" width="300" alt=""> </div>
                                                         <tbody>
                                                             <tr>
                                                                 <td>Nama </td>
@@ -92,6 +93,7 @@
                                       </div> 
                                 </td>
                                 <td  class="align-middle"><?php echo htmlentities($data->tipe, ENT_QUOTES, 'UTF-8');?></td>
+                                <td  class="align-middle"><?php echo htmlentities($data->tanggal_booking, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle"><?php echo htmlentities($data->nama_jaksa, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle">
                                   <?php if($data->pelayanan == "Daring"){ ?>
@@ -121,7 +123,7 @@
                                                   <div class="modal-body">
                                                       <div class="mb-3">
                                                         <label class="form-label" for="textInput">Tanggal Pertemuan</label>
-                                                        <input type="date" id="textInput" class="form-control" name="tgl" required>
+                                                        <input type="date" id="textInput" value="<?php echo htmlentities($data->tanggal_booking, ENT_QUOTES, 'UTF-8');?>" class="form-control" name="tgl" required>
                                                       </div>
                                                       <div class="mb-3">
                                                         <label for="textarea-input" class="form-label">Isi Disposisi</label>

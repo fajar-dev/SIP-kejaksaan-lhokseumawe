@@ -55,7 +55,7 @@
                                                   <div class="modal-body">
                                                     <div class="table-responsive">
                                                       <table class="table fw-normal">
-                                                      <div class="text-center mb-3"><img src="<?= base_url() ?>file/<?= $data->foto_jaksa?>" class="img-fluid" width="300" alt=""> </div>
+                                                      <div class="text-center mb-3"><img src="<?= base_url() ?>file/<?= $data->foto?>" class="img-fluid" width="300" alt=""> </div>
                                                         <tbody>
                                                             <tr>
                                                                 <td>Nama </td>

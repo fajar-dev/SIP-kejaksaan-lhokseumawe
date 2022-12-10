@@ -46,12 +46,12 @@
                                 <td  class="align-middle"><?php echo htmlentities($data->hp_jaksa, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#edit_jaksa<?= $data->id?>" class="btn btn-warning text-white"><i class="bi bi-pencil-fill"></i></a>
-                                    <a href="<?= base_url('main/hapus_jaksa/'.$data->id) ?>" onclick="confirm('Anda Yakin Ingin Menghapus Data?');" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#edit_jaksa<?= $data->id_jaksa?>" class="btn btn-warning text-white"><i class="bi bi-pencil-fill"></i></a>
+                                    <a href="<?= base_url('main/hapus_jaksa/'.$data->id_jaksa) ?>" onclick="confirm('Anda Yakin Ingin Menghapus Data?');" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                   </div>
                                 </td>
                                 <!-- Modal -->
-                                <div class="modal fade" id="edit_jaksa<?= $data->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="edit_jaksa<?= $data->id_jaksa?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -61,7 +61,7 @@
                                                 </button>
                                             </div>
                                             <?php echo form_open_multipart('main/edit_jaksa');?>
-                                            <input type="hidden" name="id" value="<?= $data->id?>">
+                                            <input type="hidden" name="id" value="<?= $data->id_jaksa?>">
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                   <label class="form-label" for="textInput">Nama</label>
