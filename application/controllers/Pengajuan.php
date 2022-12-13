@@ -4,6 +4,7 @@ class Pengajuan extends CI_Controller {
 
   function __construct(){
 		parent::__construct();
+    $this->config->load('mail');
     if($this->session->userdata('status') != "login"){
       redirect(base_url('login'));
     }
@@ -33,6 +34,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 1);
     $this->db->where('id', $this->input->post('id'));
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($this->input->post('id'), $this->input->post('tgl'), 'acc');
 		redirect(base_url('pengajuan'));
   }
 
@@ -41,6 +43,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 5);
     $this->db->where('id', $id);
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($id, 0, 'tolak');
 		redirect(base_url('pengajuan'));
   }
 
@@ -69,6 +72,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 2);
     $this->db->where('id', $this->input->post('id'));
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($this->input->post('id'), $this->input->post('tgl'), 'acc');
 		redirect(base_url('pengajuan/disposisi_1'));
   }
 
@@ -77,6 +81,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 4);
     $this->db->where('id', $id);
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($id, 0, 'selesai');
 		redirect(base_url('pengajuan/disposisi_1'));
   }
 
@@ -103,6 +108,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 3);
     $this->db->where('id', $this->input->post('id'));
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($this->input->post('id'), $this->input->post('tgl'), 'acc');
 		redirect(base_url('pengajuan/disposisi_2'));
   }
 
@@ -111,6 +117,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 4);
     $this->db->where('id', $id);
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($id, 0, 'selesai');
 		redirect(base_url('pengajuan/disposisi_2'));
   }
 
@@ -131,6 +138,7 @@ class Pengajuan extends CI_Controller {
     $this->db->set('status', 4);
     $this->db->where('id', $id);
     $this->db->update('tbl_pengajuan');
+    $this->_sendEmail($id, 0, 'selesai');
 		redirect(base_url('pengajuan/disposisi_3'));
   }
 
@@ -162,4 +170,42 @@ class Pengajuan extends CI_Controller {
 		$this->load->view('detail');
     $this->load->view('include/footer');
 	}
+
+  private function _sendEmail($id, $tgl, $type)
+  {
+      $user = $this->db->get_where('tbl_pengajuan', ['id' => $id])->row();
+      $this->load->library('email');
+      $config = $this->config->item('mail');
+      $addreas = $this->config->item('addreas');
+      $this->email->initialize($config);
+      $this->email->set_newline("\r\n");
+      $this->email->from($addreas, 'Kejati-Lhokseumawe');
+      $this->email->to($user->email);
+      if ($type == 'acc') {
+          $this->email->subject('Notifikasi');
+          $this->email->message('
+          <p>pertemuan anda dengan jaksa akan dilakukan pada tanggal :</p>
+          <h1>'.date('d F Y', strtotime($tgl)).'</h1>
+          ');
+      } elseif ($type == 'tolak') {
+        $this->email->subject('Notifikasi');
+        $this->email->message('
+        <p>Maaf, Status Pengajuan anda :</p>
+        <h1>DITOLAK</h1>
+        ');
+      } 
+      elseif ($type == 'selesai') {
+        $this->email->subject('Notifikasi');
+        $this->email->message('
+        <p>Maaf, Status Pengajuan anda :</p>
+        <h1>SELESAI</h1>
+        ');
+      } 
+      if ($this->email->send()) {
+          return true;
+      } else {
+          echo $this->email->print_debugger();
+          die;
+      }
+  }
 }
