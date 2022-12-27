@@ -28,35 +28,66 @@ class Auth extends CI_Controller {
 
 	function login()
 	{
+
 		$user = $this->input->post('username');
 		$pass = $this->input->post('password');
 		
-		$where = array(
-			'user'=>$user,
-			'password'=>md5($pass)
-		);
-		$cek = $this->Model_page->cek_login('tbl_admin',$where)->num_rows();
-		$hasil= $this->Model_page->cek_login('tbl_admin',$where)->result();
-
-		if($cek > 0 ){
-			foreach ($hasil as $data) {
-				$sesi = array(
-					'nama'=>$data->nama,
-					'status'=>"login",
-					'login'=>1
-					);
-			};
-			$this->session->set_userdata($sesi);
-			redirect(base_url('main'));
-		}else{
-			$this->session->set_flashdata('msg',
-			'<div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <h4 class="alert-heading">Gagal !!</h4>
-      <p>Username atau Password yang anda masukan salah</p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>'
+		if($this->input->post('login') == 1){
+			$where = array(
+				'username_jaksa'=>$user,
+				'password_jaksa'=>md5($pass)
 			);
-			redirect(base_url('login'));
+			$cek = $this->Model_page->cek_login('tbl_jaksa',$where)->num_rows();
+			$hasil= $this->Model_page->cek_login('tbl_jaksa',$where)->result();
+	
+			if($cek > 0 ){
+				foreach ($hasil as $data) {
+					$sesi = array(
+						'nama'=>$data->nama_jaksa,
+						'status'=>"login",
+						'login'=>1
+						);
+				};
+				$this->session->set_userdata($sesi);
+				redirect(base_url('main'));
+			}else{
+				$this->session->set_flashdata('msg',
+				'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<h4 class="alert-heading">Gagal !!</h4>
+				<p>Username atau Password yang anda masukan salah</p>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>'
+				);
+				redirect(base_url('login'));
+			}
+		}elseif($this->input->post('login') == 2){
+			$where = array(
+				'user'=>$user,
+				'password'=>md5($pass)
+			);
+			$cek = $this->Model_page->cek_login('tbl_admin',$where)->num_rows();
+			$hasil= $this->Model_page->cek_login('tbl_admin',$where)->result();
+	
+			if($cek > 0 ){
+				foreach ($hasil as $data) {
+					$sesi = array(
+						'nama'=>$data->nama,
+						'status'=>"login",
+						'login'=>1
+						);
+				};
+				$this->session->set_userdata($sesi);
+				redirect(base_url('main'));
+			}else{
+				$this->session->set_flashdata('msg',
+				'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<h4 class="alert-heading">Gagal !!</h4>
+				<p>Username atau Password yang anda masukan salah</p>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>'
+				);
+				redirect(base_url('login'));
+			}
 		}
 	}
 

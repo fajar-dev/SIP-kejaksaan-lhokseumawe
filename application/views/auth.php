@@ -15,6 +15,14 @@
             </div>
             <!-- Form -->
             <form method="POST" action="<?= base_url('auth/login') ?>">
+            <!-- Select Option -->
+            <div class="mb-3">
+              <label class="form-label" for="selectOne">Login Sebagai :</label>
+                <select class="form-select" name="login" aria-label="Default select example">
+                  <option value="1">Jaksa</option>
+                  <option value="2">Admin</option>
+                </select>
+              </div>
               <!-- Username -->
               <div class="mb-3">
                 <label for="email" class="form-label">Username</label>
