@@ -12,9 +12,13 @@ class Pengajuan extends CI_Controller {
 
   public function index()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->where('status', 0)->get();
+    if($this->session->userdata('role') == 1){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->where('status', 0)->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'))->get();
+    }elseif($this->session->userdata('role') == 2){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->where('status', 0)->get();
+    }
     $data['hasil'] = $q->result();
-    // print_r($data);die;
+  //  print_r($data);die;
     $data['title'] = "Pending";
     $this->load->view('include/header', $data);
     $this->load->view('include/sidebar');
@@ -50,7 +54,11 @@ class Pengajuan extends CI_Controller {
 
   public function disposisi_1()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 1)->where('urut', 1)->get();
+    if($this->session->userdata('role') == 1){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 1)->where('urut', 1)->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'))->get();
+    }elseif($this->session->userdata('role') == 2){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 1)->where('urut', 1)->get();
+    }
     $data['hasil'] = $q->result();
     // print_r($data);die;
     $data['title'] = "Disposisi 1";
@@ -87,7 +95,11 @@ class Pengajuan extends CI_Controller {
 
   public function disposisi_2()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 2)->where('urut', 2)->get();
+    if($this->session->userdata('role') == 1){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 2)->where('urut', 2)->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'))->get();
+    }elseif($this->session->userdata('role') == 2){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 2)->where('urut', 2)->get();
+    }
     $data['hasil'] = $q->result();
     $data['title'] = "Disposisi 2";
     $this->load->view('include/header', $data);
@@ -124,7 +136,11 @@ class Pengajuan extends CI_Controller {
 
   public function disposisi_3()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 3)->where('urut', 3)->get();
+    if($this->session->userdata('role') == 1){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 3)->where('urut', 3)->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'))->get();
+    }elseif($this->session->userdata('role') == 2){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->join('tbl_disposisi', 'tbl_disposisi.id_pengajuan=tbl_pengajuan.id', 'left')->where('status', 3)->where('urut', 3)->get();
+    }
     $data['hasil'] = $q->result();
     $data['title'] = "Disposisi 3";
     $this->load->view('include/header', $data);
@@ -145,7 +161,11 @@ class Pengajuan extends CI_Controller {
 
   public function selesai()
 	{
-    $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->where('status', 4)->or_where('status', 5)->get();
+    if($this->session->userdata('role') == 1){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->where('status', 4)->or_where('status', 5)->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'))->get();
+    }elseif($this->session->userdata('role') == 2){
+      $q = $this->db->select('*')->from('tbl_pengajuan')->join('tbl_jaksa', 'tbl_jaksa.id_jaksa=tbl_pengajuan.id_jaksa', 'left')->where('status', 4)->or_where('status', 5)->get();
+    }
     $data['hasil'] = $q->result();
     // print_r($data);die();
     $data['title'] = "Selesai";

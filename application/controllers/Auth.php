@@ -43,9 +43,11 @@ class Auth extends CI_Controller {
 			if($cek > 0 ){
 				foreach ($hasil as $data) {
 					$sesi = array(
+						'id'=>$data->id_jaksa,
 						'nama'=>$data->nama_jaksa,
 						'status'=>"login",
-						'login'=>1
+						'login'=>1,
+						'role'=>1
 						);
 				};
 				$this->session->set_userdata($sesi);
@@ -73,7 +75,8 @@ class Auth extends CI_Controller {
 					$sesi = array(
 						'nama'=>$data->nama,
 						'status'=>"login",
-						'login'=>1
+						'login'=>1,
+						'role'=>2
 						);
 				};
 				$this->session->set_userdata($sesi);
