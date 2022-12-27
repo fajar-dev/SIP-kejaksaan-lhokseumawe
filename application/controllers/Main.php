@@ -70,6 +70,8 @@ class Main extends CI_Controller {
 						'nip_jaksa' => $this->input->post('nip'),
 						'email_jaksa' => $this->input->post('email'),
 						'hp_jaksa' => $this->input->post('hp'),
+            'username_jaksa' => $this->input->post('user'),
+						'password_jaksa' => md5($this->input->post('passs')),
 						'foto_jaksa' => $hasil,
 				 );
 				 $this->db->insert('tbl_jaksa',$data);

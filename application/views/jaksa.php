@@ -46,12 +46,12 @@
                                 <td  class="align-middle"><?php echo htmlentities($data->hp_jaksa, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#edit_jaksa<?= $data->id_jaksa?>" class="btn btn-warning text-white"><i class="bi bi-pencil-fill"></i></a>
+                                    <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#edit_jaksa<?= $data->id_jaksa?>" class="btn btn-warning text-white"><i class="bi bi-pencil-fill"></i></a> -->
                                     <a href="<?= base_url('main/hapus_jaksa/'.$data->id_jaksa) ?>" onclick="confirm('Anda Yakin Ingin Menghapus Data?');" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                   </div>
                                 </td>
                                 <!-- Modal -->
-                                <div class="modal fade" id="edit_jaksa<?= $data->id_jaksa?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- <div class="modal fade" id="edit_jaksa<?= $data->id_jaksa?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -90,7 +90,7 @@
                                             <?php echo form_close(); ?>   
                                         </div>
                                     </div>
-                                </div>  
+                                </div>   -->
                               </tr>
                               <?php } ?>
                             </tbody>
@@ -137,6 +137,14 @@
                 <div class="mb-3">
                   <label class="form-label" for="textInput">Foto</label>
                   <input type="file" id="textInput" class="form-control" name="foto" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="textInput">Username</label>
+                  <input type="text" id="textInput" class="form-control" name="hp" placeholder="Username..." required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="textInput">Password</label>
+                  <input type="password" id="textInput" class="form-control" name="hp" placeholder="*******" required>
                 </div>
             </div>
             <div class="modal-footer">
