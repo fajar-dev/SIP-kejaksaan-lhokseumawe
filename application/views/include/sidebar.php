@@ -55,11 +55,11 @@
                         </a>
                     </li>
 
+                    <?php if($this->session->userdata('role') == 2){?>
                     <!-- Nav item -->
                     <li class="nav-item">
                         <div class="navbar-heading">Main</div>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link <?php if(($_SERVER['PHP_SELF']) == ($_SERVER['SCRIPT_NAME'].'/main/jaksa')){ echo 'active';} ?>" href="<?= base_url('main/jaksa') ?>">
                             <i data-feather="clipboard" class="nav-icon icon-xs me-2" ></i>Jaksa
@@ -71,6 +71,7 @@
                             <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Admin
                         </a>
                     </li>
+                    <?php }?>
 
                     <li class="nav-item">
                         <a class="nav-link " href="<?= base_url('auth/logout') ?>">
