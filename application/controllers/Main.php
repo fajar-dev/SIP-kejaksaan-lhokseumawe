@@ -11,20 +11,41 @@ class Main extends CI_Controller {
 
   public function index()
 	{
-    $data['pending'] = $this->db->get_where('tbl_pengajuan', ['status' => 0])->num_rows();
 
-    $this->db->select('*');
-    $this->db->where('status', 1);
-    $this->db->or_where('status', 2);
-    $this->db->or_where('status', 3);
-    $query = $this->db->get('tbl_pengajuan');
-    $data['proses'] = $query->num_rows();
+    if($this->session->userdata('role') == 1){
+      $data['pending'] = $this->db->get_where('tbl_pengajuan', ['status' => 0, 'tbl_pengajuan.id_jaksa' => $this->session->userdata('id')])->num_rows();
+      
+      $this->db->select('*');
+      $this->db->where('status', 1);
+      $this->db->or_where('status', 2);
+      $this->db->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'));
+      $this->db->or_where('status', 3);
+      $query = $this->db->get('tbl_pengajuan');
+      $data['proses'] = $query->num_rows();
 
-    $this->db->select('*');
-    $this->db->where('status', 4);
-    $this->db->or_where('status', 5);
-    $query = $this->db->get('tbl_pengajuan');
-    $data['selesai'] = $query->num_rows();
+      $this->db->select('*');
+      $this->db->where('status', 4);
+      $this->db->or_where('status', 5);
+      $this->db->where('tbl_pengajuan.id_jaksa', $this->session->userdata('id'));
+      $query = $this->db->get('tbl_pengajuan');
+      $data['selesai'] = $query->num_rows();
+
+    }elseif($this->session->userdata('role') == 2){
+      $data['pending'] = $this->db->get_where('tbl_pengajuan', ['status' => 0])->num_rows();
+
+      $this->db->select('*');
+      $this->db->where('status', 1);
+      $this->db->or_where('status', 2);
+      $this->db->or_where('status', 3);
+      $query = $this->db->get('tbl_pengajuan');
+      $data['proses'] = $query->num_rows();
+
+      $this->db->select('*');
+      $this->db->where('status', 4);
+      $this->db->or_where('status', 5);
+      $query = $this->db->get('tbl_pengajuan');
+      $data['selesai'] = $query->num_rows();
+    }
 
     $data['title'] = "Dashboard";
     $this->load->view('include/header', $data);
