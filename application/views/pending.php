@@ -31,7 +31,13 @@
                                 <th>Jaksa Tujuan</th>
                                 <th>Pelayanan</th>
                                 <th>Tujuan</th>
-                                <th>Opsi</th>
+                                <?php
+                                  if($this->session->userdata('role') == '1'){
+                                ?>
+                                  <th>Opsi</th>
+                                <?php
+                                  }
+                                ?>
                               </tr>
                             </thead>
                             <tbody>
@@ -103,6 +109,9 @@
                                   <?php } ?>
                                 </td>
                                 <td  class="align-middle"><?php echo htmlentities($data->tujuan, ENT_QUOTES, 'UTF-8');?></td>
+                                <?php
+                                  if($this->session->userdata('role') == '1'){
+                                ?>
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#disposisi<?= $data->id?>" class="btn btn-primary text-white"><i class="bi bi-file-arrow-up"></i> Disposisi</a>
@@ -139,6 +148,9 @@
                                       </div>
                                   </div>
                                 </td>
+                                <?php
+                                  }
+                                ?>
                               </tr>
  
                               <?php } ?>

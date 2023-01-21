@@ -10,7 +10,7 @@
                                     <h3 class="mb-0  text-white"><?= $title ?></h3>
                                 </div>
                                 <div>
-                                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-2" class="btn btn-white"><i class="bi bi-plus-circle-fill"></i> Tambah Jaksa</a>
+                                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-2" class="btn btn-white"><i class="bi bi-plus-circle-fill"></i> Tambah Akun Jaksa</a>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Jaksa</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Akun Jaksa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

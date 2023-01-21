@@ -101,7 +101,15 @@
                                 <div class="px-4 pb-0 pt-2">
                                     <div class="lh-1 ">
                                         <h5 class="mb-1"> <?php echo $this->session->userdata('nama') ?></h5>
-                                        <span class="text-inherit fs-6">admin</span>
+                                        <span class="text-inherit fs-6">
+                                            <?php
+                                                if($this->session->userdata('role') == '1'){
+                                                    echo'Jaksa';
+                                                }else{
+                                                    echo'admin';
+                                                }
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class=" dropdown-divider mt-3 mb-2"></div>
                                 </div>

@@ -33,7 +33,13 @@
                                 <th>Tujuan</th>
                                 <th>Tanggal Pertemuan</th>
                                 <th>Memo Disposisi</th>
-                                <th>Opsi</th>
+                                <?php
+                                  if($this->session->userdata('role') == '1'){
+                                ?>
+                                  <th>Opsi</th>
+                                <?php
+                                  }
+                                ?>
                               </tr>
                             </thead>
                             <tbody>
@@ -107,6 +113,9 @@
                                 <td  class="align-middle"><?php echo htmlentities($data->tujuan, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle"><?php echo htmlentities($data->tanggal_pertemuan, ENT_QUOTES, 'UTF-8');?></td>
                                 <td  class="align-middle"><?php echo htmlentities($data->isi, ENT_QUOTES, 'UTF-8');?></td>
+                                <?php
+                                  if($this->session->userdata('role') == '1'){
+                                ?>
                                 <td  class="align-middle">
                                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#disposisi<?= $data->id?>" class="btn btn-primary text-white"><i class="bi bi-file-arrow-up"></i> Disposisi ke-3</a>
@@ -143,6 +152,9 @@
                                       </div>
                                   </div>
                                 </td>
+                                <?php
+                                  }
+                                ?>
                               </tr>
  
                               <?php } ?>
